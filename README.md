@@ -1,9 +1,9 @@
 # StrokeEngine-Patterns
 A centralized repository for stroke engine patterns to make it easier to find new patterns!
 
-# $${\color{red}WARNING$$
+# $${\color{red}WARNING}$$
 All the patterns here should be used with caution until sufficiently tested. We're still figuing out a workflow for verifying the safety of patterns. **use your best judgement**
-# $${\color{red}WE \space TAKE \space NO \space RESPONSIBILITY \space FOR \space WHAT \space OCCURS \space DURING \space PLAY \space WITH \space THESE \space PATTERNS$$
+# $${\color{red}WE \space TAKE \space NO \space RESPONSIBILITY \space FOR \space WHAT \space OCCURS \space DURING \space PLAY \space WITH \space THESE \space PATTERNS}$$
 Always test a new pattern on your machine before play even if it's been vetted by others.
 Roll through the ranges of speed, depth, stroke, and sensation if applicable to make sure nothing unexpected or dangerous happens.
 If you notice any issues, please contact the creator of the pattern or post an issue so we can pull the pattern down & fix it before someone gets hurt.
