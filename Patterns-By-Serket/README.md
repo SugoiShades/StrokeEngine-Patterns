@@ -21,4 +21,4 @@ The main difference is that sensation changes the speed of the slow portion of t
 
 
 ### Contact info/methods
-If you notice any dangerous behavior with any of my patterns please submit a issue here on the github or contact me on the KM discord.
+If you notice any dangerous behavior with any of my patterns please submit a [issue here on the github](https://github.com/SugoiShades/StrokeEngine-Patterns/issues) or contact me on the KM discord.
