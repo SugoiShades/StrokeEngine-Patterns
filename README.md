@@ -51,7 +51,7 @@ class SimpleStroke : public Pattern {
 have the plain/human readable name for the pattern be within quotation marks in the file name for the pattern like below. (this will be referred to as `"pattern_plain_name"` below)
 and the file's name would be "Patern (Simple Stroke) V1.h"
 
-For more examples, check the Patterns-By-Serket folder.
+For more examples, check the [Patterns-By-Serket](https://github.com/SugoiShades/StrokeEngine-Patterns/tree/main/Patterns-By-Serket) folder.
 
 ## Installation
 We have all these patterns, now how can we use them? Unfortunately it does require some manual work for the time being and the abilty to compile the OSSM Codebase. There isn't a path to making this process doable on the web flashers at this time.
@@ -59,13 +59,51 @@ We have all these patterns, now how can we use them? Unfortunately it does requi
 Grab a copy of it from the [Official OSSM github](https://github.com/KinkyMakers/OSSM-hardware) here or your choice of fork (such as the [M5-Stroke repo](https://github.com/ortlof/OSSM-Stroke)) and then follow these instructions from the Research and Desire YouTube channel to get your dev environment setup [Setting Up For OSSM Development - Follow Along Guide](https://www.youtube.com/watch?v=5f4FZcFFXaA)
 After you've successfully flashed the default firmware onto your OSSM, you're ready to start adding patterns!
 ## Adding Patterns to the OSSM-Hardware (official OSSM) repo
-in Visual Studio, navigate to `/lib/StrokeEngine/src/pattern.h` With the pattern file open, scroll down to the bottom, you should see the Insist pattern's code and the Array that hold all the names for patterns. right below the }; add a new line with the enter key and paste in the code from your desired pattern file. The formatting should be the same as the other patterns already in the pattern.h file. After that, go to the bottom of the pattern array (just above it's };) and type in `new [pattern_class_name]("pattern_plain_name")` [pattern class name] should be the name of the pattern right underneath the explaination about the pattern & right after where it says class. and as a rule of thumb the name of the pattern in the file name should be this plain name. Ultimately what goes within the quotation marks doesn't matter, it should just change the display name of the pattern on your remote, so you could just call any pattern "cheese" or something if you want lol.
-add a comma to the end of the previous line/pattern entry for syntax reasons (rule of thumb, every pattern line should end with a comma except for the final pattern on the list)
+In Visual Studio, navigate to `/lib/StrokeEngine/src/pattern.h` With the pattern file open, scroll down to the bottom, you should see the Insist pattern's code and the Array that hold all the names for patterns.
+right below the `};` add a new line with the enter key and paste in the code from your desired pattern file. The formatting should be the same as the other patterns already in the pattern.h file. After that, go to the bottom of the pattern array 
+```cpp
+/**************************************************************************/
+/*
+  Array holding all different patterns. Please include any custom pattern here.
+*/
+/**************************************************************************/
+static Pattern *patternTable[] = { 
+  new SimpleStroke("Simple Stroke"),
+  new TeasingPounding("Teasing or Pounding"),
+  new RoboStroke("Robo Stroke"),
+  new HalfnHalf("Half'n'Half"),
+  new Deeper("Deeper"),
+  new StopNGo("Stop'n'Go"),
+  new Insist("Insist")
+  // <-- insert your new pattern class here!
+ };
+```
+(just above it's `};`) and type in `new [pattern_class_name]("pattern_plain_name")` [pattern class name] should be the name of the pattern right underneath the explaination about the pattern & right after where it says class. and as a rule of thumb the name of the pattern in the file name should be this plain name. Ultimately what goes within the quotation marks doesn't matter, it should just change the display name of the pattern on your remote, so you could just call any pattern "cheese" or something if you want lol. We'll also need to add a comma to the end of the previous line/pattern entry for syntax reasons (rule of thumb, every pattern line should end with a comma except for the final pattern on the list)
+For example let's add Simple Stroke to the list a 2nd time. the `pattern_class_name` for Simple Stroke is `SimpleStroke` and the `pattern_plain_name` is `"Simple Stroke"` That should look like this!
+```cpp
+/**************************************************************************/
+/*
+  Array holding all different patterns. Please include any custom pattern here.
+*/
+/**************************************************************************/
+static Pattern *patternTable[] = { 
+  new SimpleStroke("Simple Stroke"),
+  new TeasingPounding("Teasing or Pounding"),
+  new RoboStroke("Robo Stroke"),
+  new HalfnHalf("Half'n'Half"),
+  new Deeper("Deeper"),
+  new StopNGo("Stop'n'Go"),
+  new Insist("Insist"),
+  new SimpleStroke("Simple Stroke")
+  // <-- insert your new pattern class here!
+ };
+```
 Press ctrl + s to save your changes and re-compile & upload the firmware to your OSSM and you should be good to go!
 
 ## Adding Patterns to the OSSM-Stroke (M5 OSSM Stroke) repo
-in Visual Studio, navigate to `/OSSM-Stroke/lib/StrokeEngine/src/pattern.h` With the pattern file open, scroll down to the bottom, you should see the Insist pattern's code and the Array that hold all the names for patterns. right below the }; add a new line with the enter key and paste in the code from your desired pattern file. The formatting should be the same as the other patterns already in the pattern.h file. After that, go to the bottom of the pattern array (just above it's };) and type in `new [pattern class name]("pattern Plain name")` [pattern class name] should be the name of the pattern right underneath the explaination about the pattern & right after where it says class. and as a rule of thumb the name of the pattern in the file name should be this plain name. Ultimately what goes within the quotation marks doesn't matter, it should just change the display name of the pattern on your remote, so you could just call any pattern anything you think is funny or memorable **remember what you write here, you'll need it for later**.
+In Visual Studio, navigate to `/OSSM-Stroke/lib/StrokeEngine/src/pattern.h` With the pattern file open, scroll down to the bottom, you should see the Insist pattern's code and the Array that hold all the names for patterns. right below the `};` add a new line with the enter key and paste in the code from your desired pattern file. The formatting should be the same as the other patterns already in the pattern.h file. After that, go to the bottom of the pattern array (just above it's };) and type in `new [pattern class name]("pattern Plain name")` [pattern class name] should be the name of the pattern right underneath the explaination about the pattern & right after where it says class. and as a rule of thumb the name of the pattern in the file name should be this plain name. Ultimately what goes within the quotation marks doesn't matter, it should just change the display name of the pattern on your remote, so you could just call any pattern anything you think is funny or memorable **remember what you write here, you'll need it for later**.
 add a comma to the end of the previous line/pattern entry for syntax reasons (rule of thumb, every pattern line should end with a comma except for the final pattern on the list)
+Look above at the Official OSSM section for an visual example of adding Simple Stroke a 2nd time.
 Press ctrl + s to save your changes and re-compile & upload the firmware to your OSSM.
 This is where M5 Diverges from the default OSSM repo. You'll need to pull down the repo for the M5 Remote ([OSSM-M5-Remote](https://github.com/ortlof/OSSM-M5-Remote)) separately from the M5 OSSM-Stroke repo ([OSSM-Stroke](https://github.com/ortlof/OSSM-Stroke))
 After you have that pulled down into Visual Studio, navigate to the `/OSSM-M5-Remote/src/language.h` and `/OSSM-M5-Remote/src/ui/ui.c` files and open them.
@@ -98,3 +136,7 @@ add a `\n` to the end of end of the list before the quotation mark along with th
 ```
 Press ctrl + s to save this file, and then compile and flash your M5 Remote with the modified firmware.
 After that you should be ready to go!
+
+## How to create new patterns
+The official docs for Stroke Engine are here on the github repo for StrokeEngine itself [Pattern.md on Stroke Engine repo](https://github.com/theelims/StrokeEngine/blob/main/Pattern.md#contribute-a-pattern) at the contribute a pattern section.
+At a later date I'll paraphrase it elsewhere on this github repo as a "Stroke Engine for dummies" with some examples for specifc things you may want to do with it.
